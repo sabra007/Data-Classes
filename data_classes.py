@@ -31,6 +31,12 @@ class Orders:
     lastEditedBy: int
     lastEditedWhen: datetime.datetime
 
+    def __gt__(self, other):
+        return self.orderDate > other.orderDate
+    
+    def __ge__(self, other):
+        return self.orderDate >= other.orderDate
+
 # Part II: Override Operators
 # We also want to compare invoices to other invoices. Override the comparison operators as well.
 @dataclass
@@ -60,6 +66,12 @@ class Invoices:
     confirmedReceivedBy: str
     lastEditedBy: int
     lastEditedWhen: datetime.datetime
+
+    def __gt__(self, other):
+        return self.invoiceDate > other.invoiceDate
+    
+    def __ge__(self, other):
+        return self.invoiceDate >= other.invoiceDate
 
 @dataclass
 class Customers:
